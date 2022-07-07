@@ -77,3 +77,27 @@ document.addEventListener('DOMContentLoaded', () => {
       squares[currentPosition + index].style.backgroundColor = colors[random]
     })
   }
+
+
+  //undraw the Tetromino
+  function undraw() {
+    current.forEach(index => {
+      squares[currentPosition + index].classList.remove('tetromino')
+      squares[currentPosition + index].style.backgroundColor = ''
+
+    })
+  }
+
+  //assign functions to keyCodes
+  function control(e) {
+    if(e.keyCode === 37) {
+      moveLeft()
+    } else if (e.keyCode === 38) {
+      rotate()
+    } else if (e.keyCode === 39) {
+      moveRight()
+    } else if (e.keyCode === 40) {
+      moveDown()
+    }
+  }
+  document.addEventListener('keyup', control)
