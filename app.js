@@ -172,3 +172,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
+
+   //rotate the tetromino
+  function rotate() {
+    undraw()
+    currentRotation ++
+    if(currentRotation === current.length) { //if the current rotation gets to 4, make it go back to 0
+      currentRotation = 0
+    }
+    current = theTetrominoes[random][currentRotation]
+    checkRotatedPosition()
+    draw()
+  }
+  /////////
+
+  
+  
+  //show up-next tetromino in mini-grid display
+  const displaySquares = document.querySelectorAll('.mini-grid div')
+  const displayWidth = 4
+  const displayIndex = 0
+
